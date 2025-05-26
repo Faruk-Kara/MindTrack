@@ -19,7 +19,7 @@ MindTrack is a comprehensive productivity and well-being application designed to
 
 ## 🖼️ Screenshots
 
-*Screenshots will be added here to showcase the application interface*
+*Screenshots will be added here soon*
 
 ## 🛠️ Prerequisites
 
