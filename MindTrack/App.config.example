@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+    <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+  </configSections>
+  
+  <startup>
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.7.2" />
+  </startup>
+  
+  <appSettings>
+    <!-- Weather API Configuration -->
+    <!-- Get your free API key from: https://openweathermap.org/api -->
+    <add key="WeatherApiKey" value="YOUR_OPENWEATHERMAP_API_KEY_HERE" />
+    <add key="DefaultCity" value="Istanbul" />
+    
+    <!-- AI Service Configuration -->
+    <!-- Download LM Studio from: https://lmstudio.ai/ -->
+    <!-- Start the local server and use the endpoint below -->
+    <add key="LmStudioEndpoint" value="http://127.0.0.1:1234/v1/chat/completions" />
+    
+    <!-- Translation Service Configuration -->
+    <!-- This should point to your custom translation service -->
+    <!-- If you don't have one, you can disable translation features -->
+    <add key="TranslateEndpoint" value="http://127.0.0.1:5000/translate" />
+    
+    <!-- Application Settings -->
+    <add key="DatabasePath" value="mindtrack.db" />
+    <add key="EnableLogging" value="true" />
+    <add key="LogLevel" value="Info" />
+    
+    <!-- UI Settings -->
+    <add key="DefaultTheme" value="Light" />
+    <add key="AutoSave" value="true" />
+    <add key="AutoSaveInterval" value="300" /> <!-- seconds -->
+    
+    <!-- Focus Mode Settings -->
+    <add key="DefaultFocusTime" value="25" /> <!-- minutes -->
+    <add key="ShowMotivationalMessages" value="true" />
+    <add key="MessageInterval" value="5" /> <!-- minutes -->
+    
+    <!-- Mood Tracking Settings -->
+    <add key="DailyMoodReminder" value="true" />
+    <add key="ReminderTime" value="20:00" />
+    
+    <!-- Statistics Settings -->
+    <add key="DefaultStatsRange" value="7" /> <!-- days -->
+    <add key="ShowDetailedStats" value="true" />
+  </appSettings>
+  
+  <connectionStrings>
+    <!-- SQLite Connection String -->
+    <!-- The database file will be created automatically if it doesn't exist -->
+    <add name="DefaultConnection" 
+         connectionString="Data Source=mindtrack.db;Version=3;New=True;Compress=True;" 
+         providerName="System.Data.SQLite" />
+  </connectionStrings>
+  
+  <entityFramework>
+    <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
+      <parameters>
+        <parameter value="mssqllocaldb" />
+      </parameters>
+    </defaultConnectionFactory>
+    <providers>
+      <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" />
+      <provider invariantName="System.Data.SQLite.EF6" type="System.Data.SQLite.EF6.SQLiteProviderServices, System.Data.SQLite.EF6" />
+    </providers>
+  </entityFramework>
+  
+  <system.data>
+    <DbProviderFactories>
+      <remove invariant="System.Data.SQLite.EF6" />
+      <add name="SQLite Data Provider (Entity Framework 6)" invariant="System.Data.SQLite.EF6" description=".NET Framework Data Provider for SQLite (Entity Framework 6)" type="System.Data.SQLite.EF6.SQLiteProviderFactory, System.Data.SQLite.EF6" />
+      <remove invariant="System.Data.SQLite" />
+      <add name="SQLite Data Provider" invariant="System.Data.SQLite" description=".NET Framework Data Provider for SQLite" type="System.Data.SQLite.SQLiteFactory, System.Data.SQLite" />
+    </DbProviderFactories>
+  </system.data>
+  
+  <!-- Runtime Configuration -->
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="System.Runtime.CompilerServices.Unsafe" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Memory" publicKeyToken="cc7b13ffcd2ddd51" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.1.2" newVersion="4.0.1.2" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Text.Json" publicKeyToken="cc7b13ffcd2ddd51" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-9.0.0.5" newVersion="9.0.0.5" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+</configuration>
+
+<!-- 
+CONFIGURATION NOTES:
+
+1. WEATHER API SETUP:
+   - Sign up at https://openweathermap.org/api
+   - Get your free API key
+   - Replace "YOUR_OPENWEATHERMAP_API_KEY_HERE" with your actual key
+   - Change "DefaultCity" to your preferred city
+
+2. LM STUDIO SETUP:
+   - Download from https://lmstudio.ai/
+   - Install and load a language model
+   - Start the local server (usually on port 1234)
+   - The default endpoint should work if LM Studio is running locally
+
+3. TRANSLATION SERVICE:
+   - This is optional - you can disable translation features if not needed
+   - If you have a custom translation service, update the endpoint
+   - Otherwise, you can comment out or remove this setting
+
+4. DATABASE:
+   - SQLite database will be created automatically
+   - Default location is in the application directory
+   - You can change the path in DatabasePath setting
+
+5. SECURITY:
+   - Never commit this file with real API keys to version control
+   - Keep your API keys secure and don't share them
+   - Consider using environment variables for sensitive data
+
+6. CUSTOMIZATION:
+   - Adjust focus time, reminder settings, and other preferences
+   - Enable/disable features based on your needs
+   - Modify UI settings for your preferred experience
+--> 
