@@ -19,7 +19,7 @@ We take the security of MindTrack seriously. If you discover a security vulnerab
 
 Instead, please report security vulnerabilities by:
 
-1. **Email**: Send details to [your-email@example.com] (replace with actual email)
+1. **Email**: Send details to [---] (You cannot contact us at the moment.)
 2. **Subject Line**: Use "SECURITY: [Brief Description]"
 3. **Include**: As much information as possible about the vulnerability
 
@@ -123,7 +123,7 @@ We appreciate security researchers who help make MindTrack more secure. Research
 For security-related questions or concerns that are not vulnerabilities, you can:
 
 1. Create a GitHub issue with the `security` label
-2. Email us at [your-email@example.com] (replace with actual email)
+2. Email us at [---] (You cannot contact us at the moment.)
 
 ---
 
